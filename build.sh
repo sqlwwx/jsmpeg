@@ -29,7 +29,9 @@
 # In conclusion, emscripten encapsulates everything that I hate about native 
 # development :/
 
-EMSCRIPTEN_LIB=$EMSDK/fastcomp/emscripten/system/lib
+npm i -g uglify-js
+
+EMSCRIPTEN_LIB=$EMSDK/upstream/emscripten/system/lib
 
 emcc \
 	src/wasm/mpeg1.c \
@@ -110,6 +112,6 @@ echo "JSMpeg.WASM_BINARY_INLINED='$(base64 -w 0 jsmpeg.wasm)';" \
 uglifyjs jsmpeg.js -o jsmpeg.min.js
 
 # Cleanup
-rm jsmpeg.js
+# rm jsmpeg.js
 rm jsmpeg.wasm
 
